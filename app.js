@@ -3,11 +3,25 @@ let numeroLimite = 10; // limite do número secreto
 let numeroSecreto = gerarNumeroAleatorio(); // gera o número secreto aleatório
 let tentativas = 5; // número de tentativas
 
+
 function exibirTextoNaTela(tag, texto) {
+
     let campo = document.querySelector(tag); // seleciona o elemento HTML
     campo.innerHTML = texto; // exibe o texto no elemento
     responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2}); // fala o texto
+/*
+    if ('speechSynthesis' in window) {
+        let utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = 'pt-BR';
+        utterance.rate = 1.2;
+        window.speechSynthesis.speak(utterance);
+    } else {
+        console.log("Web Speech API não suportada neste navegador.");
+    }*/
 }
+
+
+
 
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1', 'Jogo do número secreto'); // exibe o título do jogo
